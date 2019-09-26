@@ -9,13 +9,12 @@ public class GuessingGame {
     int p2Score = 0;
     int p3Score = 0;
     int playerScore = 0;
-//    public int targetNum = (int) (Math.random() * 10);
     public int targetNum = 0;
 
     public void StartGame(int credits) {
 
 
-        p1Score = getPlayerScore(credits, p1, targetNum, playerScore);
+        p1Score = getPlayerScore(credits, p1, targetNum);
 //        p2Score = getPlayerScore(credits, p2, targetNum);
 //        p3Score = getPlayerScore(credits, p3, targetNum);
 
@@ -24,30 +23,17 @@ public class GuessingGame {
         System.out.println("Player 3 score: " + p3.score + "-----------------------------------");
     }
 
-    public int getPlayerScore(int credits, Player player, int targetNum, int playerScore) {
+    public int getPlayerScore(int credits, Player player, int targetNum) {
+        if(credits < 0 || targetNum < 0) {
+            return -1;
+        }
+
         for(int i = 0; i <= credits; i++) {
 
-
-//            p2.getNumber();
-//            p3.getNumber();
-
             if (targetNum == player.guessNumber()) {
-                playerScore++;
+                player.setScore(1);
             }
-//
-//            if (targetNum == p2.number) {
-//                p2Score++;
-//            }
-//
-//            if (targetNum == p3.number) {
-//                p3Score++;
-//            }
-//            System.out.print("target number is " + targetNum + " | ");
-//            System.out.print("Player 1: " + p1.number + " | ");
-//            System.out.print("Player 2: " + p2.number + " | ");
-//            System.out.println("Player 3: " + p3.number);
-//            System.out.println();
         }
-        return playerScore;
+        return player.score;
     }
 }
