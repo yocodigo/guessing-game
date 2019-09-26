@@ -2,7 +2,7 @@ package academy.learnprogramming;
 
 public class Player {
 
-    int number = 0;
+    public int number = 0;
     int score = 0;
 
     public void getNumber() {
