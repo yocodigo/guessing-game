@@ -2,15 +2,16 @@ package academy.learnprogramming;
 
 public class Player {
 
-    public int number = 0;
     int score = 0;
 
-    public void getNumber() {
-        number = (int) (Math.random() * 10);
+    public int guessNumber() {
+        int number = (int) (Math.random() * 10);
+        return number;
     }
 
-    public void setScore(int points) {
+    public int setScore(int points) {
         score = points;
+        return score;
     }
 
 }
